@@ -1,0 +1,42 @@
+
+
+
+CREATE TABLE [dbo].[Role](
+    [roleID] [int] IDENTITY(1,1) NOT NULL,
+    [roleName] [nvarchar](50) NULL,
+	[canRole] [bit] NULL,
+	[canUser] [bit] NULL,
+    [CL111] [bit] NULL,
+    [CL222] [bit] NULL,
+    [CL333] [bit] NULL,
+ CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
+(
+    [roleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+GO
+
+CREATE TABLE [dbo].[UserTable](
+	[userID] [int] IDENTITY(1,1) NOT NULL,
+	[userName] [nvarchar](50) NULL,
+    [emailid] [nvarchar](50) NULL,
+    [password] [nvarchar](50) NULL,
+    [contactNo] [nvarchar](50) NULL,
+    [isActive] [bit] NULL,
+    [roleID] [int] NOT NULL,
+ CONSTRAINT [PK_UserTable] PRIMARY KEY CLUSTERED 
+(
+	[userID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+INSERT INTO [dbo].[Role]([roleName],[canRole],[canUser]) VALUES('Admin', 1,1)
+INSERT INTO [dbo].[Role]([roleName],[canRole],[canUser]) VALUES('Public', 0,0)
+GO
+INSERT INTO [dbo].[UserTable]([userName],[emailid],[password],[contactNo],[isActive],[roleID]) VALUES  ('1','a@a.com','1','1',1,1)
+GO

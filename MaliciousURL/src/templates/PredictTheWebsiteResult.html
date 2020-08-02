@@ -1,0 +1,17 @@
+{% extends "Home.html" %}
+
+{% block content %}
+{% if result == "benign" %}
+    <div id="div1">
+        <div class="alert alert-info"><strong>URL is </strong> {{myurl}}</div>
+        <br/>
+        <div class="alert alert-primary"><strong>Result is </strong> {{result}}</div>
+    </div>
+{% endif %}
+
+{% if result == "malicious" %}
+    <div class="alert alert-info"><strong>URL is </strong> {{myurl}}</div>
+        <br/>
+        <div class="alert alert-danger"><strong>Result is </strong> {{result}}</div>
+{% endif %}
+{% endblock %}

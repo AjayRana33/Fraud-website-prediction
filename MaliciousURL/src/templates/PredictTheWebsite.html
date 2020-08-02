@@ -1,0 +1,23 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2>URL to Check</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessPredictTheWebsite" enctype="multipart/form-data">
+               
+      
+
+
+      <div class="form-group row">
+        <label for="myurl" class="col-sm-3 col-form-label">URL</label>
+        <div class="col-sm-9">
+          <input type="url" class="form-control" name="myurl" id="myurl" placeholder="Enter the URL"  required>
+        </div>
+      </div>
+
+      
+       <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">Detect</button>
+      </div>
+    </form>
+    
+{% endblock %}
